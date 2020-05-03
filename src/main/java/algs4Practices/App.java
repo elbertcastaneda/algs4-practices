@@ -3,29 +3,184 @@
  */
 package algs4Practices;
 
-import algs4Practices.Models.Person;
+import java.util.Arrays;
+import java.util.Set;
+
+import edu.princeton.cs.algs4.Average;
+import edu.princeton.cs.algs4.Counter;
+import edu.princeton.cs.algs4.Date;
+import edu.princeton.cs.algs4.RandomSeq;
+import edu.princeton.cs.algs4.Transaction;
+import edu.princeton.cs.algs4.Vector;
+
+import algs4Practices.ProgrammingModel.*;
+import algs4Practices.DataAbstraction.*;
 
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
+
+    /** ProgrammingModel 1.1 */
+    private static final String RANDOM_SEQ = "RandomSeq";
+    private static final String AVERAGE = "Average";
+
+    private static final String RIGHT_TRIANGULE = "RightTriangule";
+    private static final String TONE = "Tone";
+    private static final String SCALE = "Scale";
+    private static final String BINOMIAL = "Binomial";
+    private static final String SATTOLO = "Sattolo";
+    private static final String WGET = "Wget";
+    private static final String BOUNCING_BALL = "BouncingBall";
+    /** **/
+
+    /** DataAbstraction 1.2 */
+    private static final String COUNTER = "Counter";
+    private static final String DATE = "Date";
+    private static final String TRANSACTION = "Transaction";
+    private static final String VECTOR = "Vector";
+
+    private static final String FLIPS = "Flips";
+    private static final String FLIPS_MAX = "FlipsMax";
+    private static final String ROLLS = "Rolls";
+    /** **/
+
+    private static final Set<String> commandsAllowed = Set.of(
+        /** ProgrammingModel 1.1 */
+        RANDOM_SEQ,
+        AVERAGE,
+
+        RIGHT_TRIANGULE,
+        TONE,
+        SCALE,
+        BINOMIAL,
+        SATTOLO,
+        WGET,
+        BOUNCING_BALL,
+        /** **/
+        /** DataAbstraction 1.2 */
+        COUNTER,
+        DATE,
+        TRANSACTION,
+        VECTOR,
+
+        FLIPS,
+        FLIPS_MAX,
+        ROLLS
+        /** **/
+    );
+
+    private static class ActionArgs {
+        public String action;
+        public String[] args;
+
+        public ActionArgs(String action, String[] args) {
+            this.action = action;
+            this.args = args;
+        }
+
+        public boolean is(String action) {
+            return this.action.equals(action);
+        }
     }
 
     public static void main(final String[] args) {
+        try {
+            ActionArgs actionArgs = processArgs(args);
 
-        System.out.println(new App().getGreeting());
-        System.out.println("---------------------");
-        String hardCodeName = "Manolo";
+            programmingModelPractices(actionArgs);
+            dataAbstractionPractices(actionArgs);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
-        if ("manolo" == args[0]) {
-            hardCodeName = "Venancio";
+    public static ActionArgs processArgs(String[] args) throws Exception {
+        if (args.length < 1) {
+            throw new Exception(
+                "We need a command in the first argument (" + commandsAllowed.toString() + ")"
+            );
+        }
+        final String action = args[0];
+
+        if (!commandsAllowed.contains(action)) {
+            throw new Exception("The commands supported are: " + commandsAllowed.toString());
+        }
+        final String[] args2Action = Arrays.copyOfRange(args, 1, args.length);
+
+        return new ActionArgs(action, args2Action);
+    }
+
+    /**
+     * 1.1 Programming Model practices
+     * @param actionArgs
+     */
+    public static void programmingModelPractices(ActionArgs actionArgs) {
+        if (actionArgs.is(RANDOM_SEQ)) {
+            RandomSeq.main(actionArgs.args);
         }
 
-        System.out.println("Hello " + args[0] + ", and " + args[1] + " also " + hardCodeName);
+        if (actionArgs.is(AVERAGE)) {
+            Average.main(actionArgs.args);
+        }
 
-        // TODO: Saludar con los nombres recibidos y en el texto del saludo a la terminal
+        if (actionArgs.is(RIGHT_TRIANGULE)) {
+            RightTriangule.main();
+        }
 
-        System.out.println("---------------------");
-        final Person person = new Person("Elbert");
-        person.talk(args);
+        if (actionArgs.is(TONE)) {
+            Tone.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(SCALE)) {
+            Scale.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(BINOMIAL)) {
+            Binomial.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(SATTOLO)) {
+            Sattolo.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(WGET)) {
+            Wget.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(BOUNCING_BALL)) {
+            BouncingBall.main(actionArgs.args);
+        }
+    }
+
+    /**
+     * 1.2 Data Abstractions practices
+     * @param actionArgs
+     */
+    public static void dataAbstractionPractices(ActionArgs actionArgs) {
+        if (actionArgs.is(COUNTER)) {
+            Counter.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(DATE)) {
+            Date.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(TRANSACTION)) {
+            Transaction.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(VECTOR)) {
+            Vector.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(FLIPS)) {
+            Flips.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(FLIPS_MAX)) {
+            FlipsMax.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(ROLLS)) {
+            Rolls.main(actionArgs.args);
+        }
     }
 }
