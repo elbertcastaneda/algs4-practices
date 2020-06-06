@@ -22,7 +22,7 @@ public class App {
     private static final String RANDOM_SEQ = "RandomSeq";
     private static final String AVERAGE = "Average";
 
-    private static final String RIGHT_TRIANGULE = "RightTriangule";
+    private static final String RIGHT_TRIANGLE = "RightTriangle";
     private static final String TONE = "Tone";
     private static final String SCALE = "Scale";
     private static final String BINOMIAL = "Binomial";
@@ -47,7 +47,7 @@ public class App {
         RANDOM_SEQ,
         AVERAGE,
 
-        RIGHT_TRIANGULE,
+        RIGHT_TRIANGLE,
         TONE,
         SCALE,
         BINOMIAL,
@@ -68,35 +68,33 @@ public class App {
     );
 
     private static class ActionArgs {
-        public String action;
-        public String[] args;
+        private String action;
+        private String[] args;
 
-        public ActionArgs(String action, String[] args) {
+        public ActionArgs(final String action, final String[] args) {
             this.action = action;
             this.args = args;
         }
 
-        public boolean is(String action) {
+        public boolean is(final String action) {
             return this.action.equals(action);
         }
     }
 
     public static void main(final String[] args) {
         try {
-            ActionArgs actionArgs = processArgs(args);
+            final ActionArgs actionArgs = processArgs(args);
 
             programmingModelPractices(actionArgs);
             dataAbstractionPractices(actionArgs);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static ActionArgs processArgs(String[] args) throws Exception {
+    public static ActionArgs processArgs(final String[] args) throws Exception {
         if (args.length < 1) {
-            throw new Exception(
-                "We need a command in the first argument (" + commandsAllowed.toString() + ")"
-            );
+            throw new Exception("We need a command in the first argument (" + commandsAllowed.toString() + ")");
         }
         final String action = args[0];
 
@@ -110,9 +108,10 @@ public class App {
 
     /**
      * 1.1 Programming Model practices
+     *
      * @param actionArgs
      */
-    public static void programmingModelPractices(ActionArgs actionArgs) {
+    public static void programmingModelPractices(final ActionArgs actionArgs) {
         if (actionArgs.is(RANDOM_SEQ)) {
             RandomSeq.main(actionArgs.args);
         }
@@ -121,7 +120,7 @@ public class App {
             Average.main(actionArgs.args);
         }
 
-        if (actionArgs.is(RIGHT_TRIANGULE)) {
+        if (actionArgs.is(RIGHT_TRIANGLE)) {
             RightTriangle.main();
         }
 
@@ -152,9 +151,10 @@ public class App {
 
     /**
      * 1.2 Data Abstractions practices
+     *
      * @param actionArgs
      */
-    public static void dataAbstractionPractices(ActionArgs actionArgs) {
+    public static void dataAbstractionPractices(final ActionArgs actionArgs) {
         if (actionArgs.is(COUNTER)) {
             Counter.main(actionArgs.args);
         }
