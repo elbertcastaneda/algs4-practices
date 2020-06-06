@@ -1,8 +1,8 @@
-package algs4Practices.ProgrammingModel;
+package algs_four_practices.programming_model;
 
 import edu.princeton.cs.algs4.StdDraw;
 
-public class RightTriangule {
+public class RightTriangle {
     public static void main() {
         StdDraw.square(.5, .5, .5);
 

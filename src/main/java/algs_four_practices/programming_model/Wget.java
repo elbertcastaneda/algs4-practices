@@ -1,4 +1,4 @@
-package algs4Practices.ProgrammingModel;
+package algs_four_practices.programming_model;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;

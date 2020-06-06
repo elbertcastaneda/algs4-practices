@@ -1,4 +1,4 @@
-package algs4Practices.ProgrammingModel;
+package algs_four_practices.programming_model;
 
 import java.awt.Color;
 
@@ -12,7 +12,6 @@ public class Scale {
         int h = Integer.parseInt(args[2]);
         Picture source = new Picture(filename);
         Picture target = new Picture(w, h);
-        // StdOut.println("Source image: " + source.width() + "-by-" + source.height());
 
         for (int ti = 0; ti < w; ti++) {
             for (int tj = 0; tj < h; tj++) {

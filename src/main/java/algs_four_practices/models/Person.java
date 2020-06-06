@@ -1,4 +1,6 @@
-package algs4Practices.Models;
+package algs_four_practices.models;
+
+import static java.lang.System.out;
 
 public class Person
 {
@@ -12,7 +14,7 @@ public class Person
 
     public void talk(final String[] args)
     {
-        System.out.println("My name is " + this.Name);
+        out.println("My name is " + this.Name);
         System.out.println("Hello world");
     }
 }

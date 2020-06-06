@@ -1,4 +1,4 @@
-package algs4Practices.DataAbstraction;
+package algs_four_practices.data_abstraction;
 
 import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdOut;
