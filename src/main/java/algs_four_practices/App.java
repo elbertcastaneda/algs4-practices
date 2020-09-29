@@ -14,6 +14,7 @@ import edu.princeton.cs.algs4.Transaction;
 import edu.princeton.cs.algs4.Vector;
 
 import algs_four_practices.programming_model.*;
+import algs_four_practices.bags_queues_and_stacks.*;
 import algs_four_practices.data_abstraction.*;
 
 public class App {
@@ -42,6 +43,10 @@ public class App {
     private static final String ROLLS = "Rolls";
     /** **/
 
+    /** DataAbstraction 1.2 */
+    private static final String STATS = "Stats";
+    /** **/
+
     private static final Set<String> commandsAllowed = Set.of(
         /** ProgrammingModel 1.1 */
         RANDOM_SEQ,
@@ -63,7 +68,10 @@ public class App {
 
         FLIPS,
         FLIPS_MAX,
-        ROLLS
+        ROLLS,
+        /** **/
+        /** Bags,Queues, and Stacks 1.3 */
+        STATS
         /** **/
     );
 
@@ -87,6 +95,7 @@ public class App {
 
             programmingModelPractices(actionArgs);
             dataAbstractionPractices(actionArgs);
+            bagsQueuesAndStacksPractices(actionArgs);
         } catch (final Exception e) {
             System.out.println(e.getMessage());
         }
@@ -181,6 +190,17 @@ public class App {
 
         if (actionArgs.is(ROLLS)) {
             Rolls.main(actionArgs.args);
+        }
+    }
+
+    /**
+     * 1.3 Bags, Queues, and Stacks
+     *
+     * @param actionArgs
+     */
+    public static void bagsQueuesAndStacksPractices(final ActionArgs actionArgs) {
+        if (actionArgs.is(STATS)) {
+            Stats.main(actionArgs.args);
         }
     }
 }

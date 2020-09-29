@@ -39,7 +39,7 @@ public class Binomial {
     public static double binomial1(int N, int k, double p) {
         if (N == 0 && k == 0) return 1.0;
         if (N < 0 || k < 0) return 0.0;
-        return (1.0 - p) *binomial1(N-1, k, p) + p*binomial1(N-1, k-1, p);
+        return (1.0 - p) * binomial1(N-1, k, p) + p * binomial1(N-1, k-1, p);
     }
 
     // memoization
