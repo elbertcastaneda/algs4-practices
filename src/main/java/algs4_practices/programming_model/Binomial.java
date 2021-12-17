@@ -3,7 +3,7 @@
  * Last updated: Fri Oct 20 12:50:46 EDT 2017.
  */
 
-package algs_four_practices.programming_model;
+package algs4_practices.programming_model;
 
 import edu.princeton.cs.algs4.StdOut;
 

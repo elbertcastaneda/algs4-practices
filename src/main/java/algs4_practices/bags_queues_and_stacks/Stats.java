@@ -1,4 +1,4 @@
-package algs_four_practices.bags_queues_and_stacks;
+package algs4_practices.bags_queues_and_stacks;
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.StdOut;

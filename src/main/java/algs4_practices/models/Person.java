@@ -1,4 +1,4 @@
-package algs_four_practices.models;
+package algs4_practices.models;
 
 import static java.lang.System.out;
 

@@ -1,4 +1,4 @@
-package algs_four_practices.programming_model;
+package algs4_practices.programming_model;
 
 import edu.princeton.cs.algs4.StdAudio;
 

@@ -1,38 +1,33 @@
-package algs_four_practices.data_abstraction;
+package algs4_practices.data_abstraction;
 
 import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
 /******************************************************************************
- * Compilation: javac Flips.java Execution: java Flips n Dependencies:
+ * Compilation: javac FlipsMax.java Execution: java FlipsMax n Dependencies:
  * Counter.java StdRandom.java StdOut.java
  *
- * Simulate the flipping of n fair coins.
+ * A static method that takes two objects as arguments and returns an object.
  *
- * % java Flips 10
- *  5 heads
- *  5 tails
- *  delta: 0
- *
- * % java Flips 10
- *  8 heads
- *  2 tails
- *  delta: 6
- *
- * % java Flips 1000000
- *  499710 heads
- *  500290 tails
- *  delta: 580
+ * % java FlipsMax 1000000
+ * 500281 tails wins
  *
  ******************************************************************************/
 
-public class Flips {
+public class FlipsMax {
+
+    public static Counter max(Counter x, Counter y) {
+        if (x.tally() > y.tally())
+            return x;
+        else
+            return y;
+    }
+
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         Counter heads = new Counter("heads");
         Counter tails = new Counter("tails");
-
         for (int i = 0; i < n; i++) {
             if (StdRandom.bernoulli(0.5))
                 heads.increment();
@@ -40,9 +35,9 @@ public class Flips {
                 tails.increment();
         }
 
-        StdOut.println(heads);
-        StdOut.println(tails);
-        int delta = heads.tally() - tails.tally();
-        StdOut.println("delta: " + Math.abs(delta));
+        if (heads.tally() == tails.tally())
+            StdOut.println("Tie");
+        else
+            StdOut.println(max(heads, tails) + " wins");
     }
 }
