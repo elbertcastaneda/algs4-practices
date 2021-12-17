@@ -30,6 +30,7 @@ public class App {
     private static final String SATTOLO = "Sattolo";
     private static final String WGET = "Wget";
     private static final String BOUNCING_BALL = "BouncingBall";
+    private static final String INDEX_OF = "IndexOf";
     /** **/
 
     /** DataAbstraction 1.2 */
@@ -59,7 +60,9 @@ public class App {
         SATTOLO,
         WGET,
         BOUNCING_BALL,
+        INDEX_OF,
         /** **/
+
         /** DataAbstraction 1.2 */
         COUNTER,
         DATE,
@@ -70,6 +73,7 @@ public class App {
         FLIPS_MAX,
         ROLLS,
         /** **/
+
         /** Bags,Queues, and Stacks 1.3 */
         STATS
         /** **/
@@ -105,11 +109,13 @@ public class App {
         if (args.length < 1) {
             throw new Exception("We need a command in the first argument (" + commandsAllowed.toString() + ")");
         }
+
         final String action = args[0];
 
         if (!commandsAllowed.contains(action)) {
             throw new Exception("The commands supported are: " + commandsAllowed.toString());
         }
+
         final String[] args2Action = Arrays.copyOfRange(args, 1, args.length);
 
         return new ActionArgs(action, args2Action);
@@ -155,6 +161,10 @@ public class App {
 
         if (actionArgs.is(BOUNCING_BALL)) {
             BouncingBall.main(actionArgs.args);
+        }
+
+        if (actionArgs.is(INDEX_OF)) {
+            IndexOf.main(actionArgs.args);
         }
     }
 
