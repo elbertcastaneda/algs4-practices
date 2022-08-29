@@ -31,7 +31,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'algs4_practices.App'
+    mainClass = 'algs4_practices.App'
 }
 
 run {
