@@ -2,6 +2,7 @@ package algs4_practices.programming_model;
 
 import edu.princeton.cs.algs4.StdAudio;
 
+// gradle :run --args="Tone 1000 2"
 public class Tone {
     public static void main(String[] args) {
         double hz       = Double.parseDouble(args[0]);    // frequency in Hz
