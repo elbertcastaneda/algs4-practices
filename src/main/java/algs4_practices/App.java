@@ -105,7 +105,7 @@ public class App {
         }
     }
 
-    public static ActionArgs processArgs(final String[] args) throws Exception {
+    private static ActionArgs processArgs(final String[] args) throws Exception {
         if (args.length < 1) {
             throw new Exception("We need a command in the first argument (" + commandsAllowed.toString() + ")");
         }
@@ -126,7 +126,7 @@ public class App {
      *
      * @param actionArgs
      */
-    public static void programmingModelPractices(final ActionArgs actionArgs) {
+    private static void programmingModelPractices(final ActionArgs actionArgs) {
         if (actionArgs.is(RANDOM_SEQ)) {
             RandomSeq.main(actionArgs.args);
         }
@@ -173,7 +173,7 @@ public class App {
      *
      * @param actionArgs
      */
-    public static void dataAbstractionPractices(final ActionArgs actionArgs) {
+    private static void dataAbstractionPractices(final ActionArgs actionArgs) {
         if (actionArgs.is(COUNTER)) {
             Counter.main(actionArgs.args);
         }
@@ -208,7 +208,7 @@ public class App {
      *
      * @param actionArgs
      */
-    public static void bagsQueuesAndStacksPractices(final ActionArgs actionArgs) {
+    private static void bagsQueuesAndStacksPractices(final ActionArgs actionArgs) {
         if (actionArgs.is(STATS)) {
             Stats.main(actionArgs.args);
         }

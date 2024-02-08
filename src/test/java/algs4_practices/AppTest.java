@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class AppTest {
     @Test
     public void testAppHasAGreeting() {
-        // App classUnderTest = new App();
+        App classUnderTest = new App();
 
-        assertNotNull("");
+        assertNotNull(classUnderTest.toString());
     }
 }
