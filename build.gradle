@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'org.jetbrains.kotlin.jvm' version '2.0.0'
 }
 
 repositories {
@@ -8,7 +9,10 @@ repositories {
 }
 
 dependencies {
-    // Add any required dependencies here
+    // Find dependencies on https://central.sonatype.com/
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
 
     // Test Dependencies
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
@@ -17,10 +21,41 @@ dependencies {
 }
 
 application {
-    mainClass.set('algs4_practices.App')
+    mainClass.set('algs4_practices.AppKotlinKt')
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility = "11"
+    targetCompatibility = "11"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        kotlin {
+            srcDirs = ['src/main/java']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+        kotlin {
+            srcDirs = ['src/test/java']
+        }
+    }
 }
 
 tasks.named('jar') {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes(
                 'Main-Class': application.mainClass.get()
