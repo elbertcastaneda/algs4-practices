@@ -33,7 +33,7 @@ public class Rolls {
 
         // increment trials counters at random
         for (int t = 0; t < trials; t++) {
-            hits[StdRandom.uniform(n)].increment();
+            hits[StdRandom.uniformInt(n)].increment();
         }
 
         // print results
