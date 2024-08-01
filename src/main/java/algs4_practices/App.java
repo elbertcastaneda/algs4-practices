@@ -80,8 +80,8 @@ public class App {
     );
 
     private static class ActionArgs {
-        private String action;
-        private String[] args;
+        private final String action;
+        private final String[] args;
 
         public ActionArgs(final String action, final String[] args) {
             this.action = action;
