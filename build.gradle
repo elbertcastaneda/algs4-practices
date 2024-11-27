@@ -76,3 +76,12 @@ run {
 test {
     useJUnitPlatform()
 }
+
+tasks.test {
+    // Show test results in the console
+    testLogging {
+        events("passed", "skipped", "failed")
+        showStandardStreams = true // Show output from System.out and System.err
+        exceptionFormat = 'full'   // Show full exception stack trace
+    }
+}
