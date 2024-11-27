@@ -48,3 +48,33 @@ Move-Item -Path .\algs4\src\main\java\edu -Destination .\src\main\java\
 Remove-Item -Recurse -Force .\algs4
 
 ```
+
+---
+
+## Upgrade gradle wrapper
+
+```bash
+./gradlew wrapper --gradle-version 8.11
+```
+
+Here to get the latest version: https://docs.gradle.org/current/userguide/userguide.html
+
+---
+
+## Upgrade Gradle Plugins and Dependencies
+
+Change versions on `./build.gradle` file.
+
+### Gradle Plugins
+
+https://plugins.gradle.org/
+
+- Kotlin: https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
+
+### Dependencies
+
+https://mvnrepository.com/
+
+- [org.junit.jupiter:junit-jupiter](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api)
+- [org.junit.jupiter:junit-jupiter-engine](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine)
+- [org.junit.platform:junit-platform-launcher](https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher)
